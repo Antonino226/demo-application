@@ -1,21 +1,9 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Angular App</a>
+<main *ngIf="!isEnter">
+  <router-outlet></router-outlet>
+<main>
 
-    <ul *ngIf="!isEnter" class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-    </ul>
-    <ul *ngIf="isEnter" class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<router-outlet></router-outlet>
+<main id="content">
+  <app-nav></app-nav>
+  <router-outlet><router-outlet></router-outlet></router-outlet>
+  <app-footer></app-footer>
+</main>

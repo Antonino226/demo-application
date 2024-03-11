@@ -23,7 +23,7 @@ export class AppComponent{
         const currentUrl = this.router.url;
 
         // Controlla se l'URL corrente è diverso da "login" e "register"
-        this.isEnter = !['/login', '/register'].includes(currentUrl);
+        this.isEnter = !['/login',].includes(currentUrl);
       }
     });
   }
