@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 const BASE_URL = ["http://localhost:8080/"]
 
@@ -9,7 +9,7 @@ const BASE_URL = ["http://localhost:8080/"]
   providedIn: 'root'
 })
 export class JwtService {
-
+  
   constructor(private http: HttpClient,private router: Router) { }
 
   register(signRequest: any): Observable<any> {
@@ -24,6 +24,17 @@ export class JwtService {
     return this.http.get(BASE_URL + 'api/hello', {
       headers: this.createAuthorizationHeader()
     })
+  }
+
+  checkEmailAvailability(email: string): Observable<boolean> {
+    // Chiamata asincrona per verificare la disponibilità dell'email
+    return this.http.get<boolean>(`${BASE_URL}/check-email?email=${email}`).pipe(
+      map((response: boolean) => response),
+      catchError((error) => {
+        console.error('Error checking email availability:', error);
+        return of(false); // Gestisci l'errore restituendo false o un valore di default
+      })
+    );
   }
 
   logout(): void {

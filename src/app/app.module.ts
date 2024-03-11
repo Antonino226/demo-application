@@ -12,10 +12,11 @@ import { AboutComponent } from './components/about/about.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { ServicesComponent } from './components/services/services.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from "./components/footer/footer.component";
+import { SocialComponent } from './components/social/social.component';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -27,9 +28,10 @@ import { FooterComponent } from "./components/footer/footer.component";
         ClientsComponent,
         PricingComponent,
         GalleryComponent,
-        ServicesComponent,
         NotfoundComponent,
-        NavComponent
+        NavComponent,
+        FooterComponent,
+        SocialComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -39,8 +41,9 @@ import { FooterComponent } from "./components/footer/footer.component";
         HttpClientModule,
         ReactiveFormsModule,
         CommonModule,
-        NavComponent,
-        FooterComponent
+        RouterOutlet,
+        RouterLink, 
+        RouterLinkActive      
     ]
 })
 export class AppModule { }

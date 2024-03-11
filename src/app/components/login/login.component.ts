@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable, debounceTime, map, catchError, of } from 'rxjs';
 import { JwtService } from 'src/app/service/jwt.service';
 
 @Component({
@@ -53,26 +54,45 @@ export class LoginComponent implements OnInit {
           alert("Hello, Your token is " + response.jwt);
           const jwtToken = response.jwt;
           localStorage.setItem('jwt', jwtToken);
-          this.router.navigateByUrl("/dashboard");
+          this.router.navigateByUrl("/home");
         }
       }
     )
   }
 
-  registerSubmit() {
-    console.log(this.registerForm.value);
-    this.service.register(this.registerForm.value).subscribe(
-      (response) => {
-        if (response.id != null) {
-          alert("Hello " + response.name);
+  registerSubmit(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Convalida il form
+        if (this.registerForm?.invalid) {
+          reject('Form is invalid');
+          return;
         }
-      },
-      (error) => {
-        // Gestisci gli errori qui, ad esempio, mostra un messaggio generico all'utente
-        console.error('Register failed:', error);
-        alert('Register failed. Please try again.');
+
+        // Esegui la registrazione
+        const response = await this.service.register(this.registerForm.value).toPromise();
+
+        if (response.id != null) {
+          resolve(response);
+        } else {
+          reject('Registration failed');
+        }
+      } catch (error) {
+        reject(error);
       }
-    );
+    });
+  }
+
+  asyncEmailValidator(jwtService: JwtService): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      const email = control.value;
+  
+      return jwtService.checkEmailAvailability(email).pipe(
+        debounceTime(300),
+        map((available: boolean) => (available ? null : { emailTaken: true })),
+        catchError(() => of(null))  // gestisci gli errori in modo appropriato
+      );
+    };
   }
 
 }

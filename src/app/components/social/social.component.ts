@@ -1,23 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { ConfigItem } from 'src/app/service/config-item';
 import { ConfigService } from 'src/app/service/config.service';
-
 @Component({
-  selector: 'app-header',
+  selector: 'app-social',
   
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  templateUrl: './social.component.html',
+  styleUrls: ['./social.component.css'],
 })
-export class HeaderComponent {
-
-  header!: ConfigItem | undefined;
+export class SocialComponent {
+  social!: ConfigItem | undefined;
   configService: ConfigService = inject(ConfigService);
 
   constructor()  {
-    // this.header = this.configService.getPageByName("header");
+    // this.social = this.configService.getPageByName("social");
     this.configService.getPageById(4).subscribe(
-      (response) => this.header = response
+      (response) => this.social = response
       );
   }
-
 }
