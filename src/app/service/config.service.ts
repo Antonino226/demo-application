@@ -30,7 +30,7 @@ configuration : ConfigItem[] = [
     }
   },
   {id:2,
-  name:"clients",
+  name:"users",
       data: {
           title: "TRUST",
           description: "Companies who use our services",

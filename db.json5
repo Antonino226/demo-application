@@ -1,21 +1,6 @@
 {configuration : [
-  {id: 1,
-   name:'about', 
-      data : {
-          title: 'SUCCESS',
-          description: 'How We Help You To Sell Your Product',
-          detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!',
-          buttontext:'START CREATING TODAY',
-          iconBlocks: [
-          {id: 1, icon:'fa-html5' , title:'HTML5 &amp; CSS3', description:'Id porro tritani recusabo usu, eum intellegam consequuntur et. Fugit debet ea sit, an pro\nnemore vivendum'},
-          {id: 2, icon:'fa-bolt' , title:'Easy to Use', description:'Id porro tritani recusabo usu, eum intellegam consequuntur et. Fugit debet ea sit, an pro\nnemore vivendum'},
-          {id: 3, icon:'fa-tablet' , title:'Fully Responsive', description:'Id porro tritani recusabo usu, eum intellegam consequuntur et. Fugit debet ea sit, an pro\nnemore vivendum'},
-          {id: 4, icon:'fa-rocket' , title:'Parallax Effect', description:'Id porro tritani recusabo usu, eum intellegam consequuntur et. Fugit debet ea sit, an pro\nnemore vivendum'}
-          ]
-    }
-  },
   {id:2,
-  name:'clients',
+  name:'users',
       data: {
           title: 'TRUST',
           description: 'Companies who use our services',
@@ -47,88 +32,6 @@
               {id: 5 , url:'../assets/images/gallery-images/gallery-image-5.jpg' , name:'Moose'},
               {id: 6 , url:'../assets/images/gallery-images/gallery-image-6.jpg' , name:'Justice'},
           ]
-    }
-  },
-  {id:4,
-  name:'header',  
-      data: {
-      title: 'A FREE AND SIMPLE LANDING PAGE',
-      description: 'A FREE AND SIMPLE LANDING PAGE',
-      url:'Namari is a free landing page template you can use for your projects. It is free to use for your\npersonal and commercial projects enjoy!',
-      buttontext:'START CREATING TODAY'
-    }
-  },
-  {id:5,
-  name:'pricing',
-      data: {
-      title: 'YOUR CHOICE',
-      description: 'We have the right package for you',
-      detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!',
-      pricingBlocks: [
-        {id: 1 , 
-          Description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit' , 
-          title:'PERSONAL',
-          subTitle:'The standard version',
-          currency:'₹',
-          price:19,
-          featured:false,
-          Downloads:'5 Downloads',
-          Extensions:'2 Extensions',
-          Tutorials:'Tutorials',
-          Support:'Forum Support',
-          updates:'1 year free updates',
-          buttonText:'BUY NOW'
-        },
-        {id: 2 , 
-          Description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit' , 
-          title:'STUDENT',
-          subTitle:'Most popular choice',
-          currency:'₹',
-          price:29,
-          featured:true,
-          Downloads:'15 Downloads',
-          Extensions:'5 Extensions',
-          Tutorials:'Tutorials with Files',
-          Support:'Forum Support',
-          updates:'2 years free updates',
-          buttonText:'BUY NOW'
-        },
-        {id: 3 , 
-          Description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit' , 
-          title:'BUSINESS',
-          subTitle:'For the whole team',
-          currency:'₹',
-          price:49,
-          featured:false,
-          Downloads:'Unlimited Downloads',
-          Extensions:'Unlimited Extensions',
-          Tutorials:'HD Video Tutorials',
-          Support:'Chat Support',
-          updates:'Lifetime free updates',
-          buttonText:'BUY NOW'
-        },     
-      ]
-    }
-  },
-  {id:6,
-  name:'services',  
-      data:{
-      title: 'BELIEVING',
-      description: 'Focusing On What Matters Most',
-      detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'
-    }
-  },
-  {id:7,
-  name:'testimonials',
-  data: {
-      title: 'FEEDBACK',
-      description: 'What our customers are saying',
-      detail: '',
-      feedbackBlock : [
-          {name: 'John Doe', userimage: '../assets/images/user-images/user-1.jpg', comments:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', company: 'ABC'},
-          {name: 'Roslyn Doe', userimage: '../assets/images/user-images/user-2.jpg', comments:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', company: 'XYZ'},
-          {name: 'Thomas Doe', userimage: '../assets/images/user-images/user-3.jpg', comments:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', company: 'PQR'},
-      ]
     }
   },
   {id:8,

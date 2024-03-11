@@ -9,7 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
-import { ClientsComponent } from './components/clients/clients.component';
+import { UsersComponent } from './components/users/users.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
@@ -25,7 +25,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
         DashboardComponent,
         HeaderComponent,
         AboutComponent,
-        ClientsComponent,
+        UsersComponent,
         PricingComponent,
         GalleryComponent,
         NotfoundComponent,
