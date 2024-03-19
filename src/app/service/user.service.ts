@@ -1,16 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, switchMap } from 'rxjs';
+import { User } from '../models/user.model';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 const BASE_URL = ["http://localhost:8080/"]
 
 @Injectable({
   providedIn: 'root'
 })
-export class JwtService {
-  
-  constructor(private http: HttpClient,private router: Router) { }
+export class UserService {
+  findOne(userId: number): any {
+    throw new Error('Method not implemented.');
+  }
+  constructor(private http: HttpClient,private router: Router,
+    private jwtHelper: JwtHelperService) { }
 
   register(signRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'signup', signRequest)
@@ -18,6 +23,31 @@ export class JwtService {
 
   login(loginRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'login', loginRequest)
+  }
+
+  updateUser(user: User): Observable<any> {
+    // Assume che ci sia un endpoint API per l'aggiornamento dell'utente
+    return this.http.put(BASE_URL + 'update-user', user);
+  }
+  
+  getUser(userId: number): Observable<User> {
+    // Assume che ci sia un endpoint API per ottenere i dettagli dell'utente
+    return this.http.get<User>(`${BASE_URL}users/${userId}`);
+  }
+
+  getUserId(): number {
+    const jwtToken = localStorage.getItem('jwt');
+
+    if (jwtToken) {
+      const decodedToken = this.jwtHelper.decodeToken(jwtToken);
+
+      if (decodedToken && decodedToken.user && decodedToken.user.id) {
+        console.log("ID: decodedToken.user.id " + decodedToken.user.id);
+        return decodedToken.user.id;
+      }
+    }
+
+    return -1;
   }
 
   hello(): Observable<any> {
@@ -39,7 +69,6 @@ export class JwtService {
 
   logout(): void {
     localStorage.removeItem('jwt');
-    console.log("LOCAL:" + localStorage);
     this.router.navigate(['/login']);
   }
 

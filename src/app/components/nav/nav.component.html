@@ -42,17 +42,16 @@
                         <a routerLink="/users" routerLinkActive="active" ariaCurrentWhenActive="page">users</a>
                     </li>
                     <li>
+                        <a routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Product</a>
+                    </li>
+                    <li>
                         <a routerLink="/pricing" routerLinkActive="active" ariaCurrentWhenActive="page">Pricing</a>
                     </li>
                 </ul>
             </nav>
 
-            <div>
-                <ul>
-                    <li>
-                        <a routerLink="/pricing" routerLinkActive="active" ariaCurrentWhenActive="page">Pricing</a>
-                    </li>
-                </ul>
+            <div id="logo">
+                <a [routerLink]="['/profile', userId]" routerLinkActive="active" ariaCurrentWhenActive="page">Profile</a>
             </div>
             <!--End of Main Navigation-->
 

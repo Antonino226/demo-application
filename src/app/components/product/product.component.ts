@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { ConfigItem } from 'src/app/service/config-item';
 import { ConfigService } from 'src/app/service/config.service';
-@Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
-})
 
-export class UsersComponent {
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrl: './product.component.scss'
+})
+export class ProductComponent {
   users!: ConfigItem | undefined;
   configService: ConfigService = inject(ConfigService);
 

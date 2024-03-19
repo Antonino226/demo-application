@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { JwtService } from './service/jwt.service';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent{
   isEnter: boolean;
 
   constructor(private router: Router,
-    private service: JwtService) {}
+    private service: UserService) {}
 
   ngOnInit() {
     // Aggiungi un ascoltatore agli eventi di navigazione

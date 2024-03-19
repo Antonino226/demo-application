@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, debounceTime, map, catchError, of } from 'rxjs';
-import { JwtService } from 'src/app/service/jwt.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginObj: any;
 
   constructor(
-    private service: JwtService,
+    private service: UserService,
     private fb: FormBuilder,
     private router: Router
   ) { }
@@ -83,11 +83,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  asyncEmailValidator(jwtService: JwtService): AsyncValidatorFn {
+  asyncEmailValidator(UserService: UserService): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
   
-      return jwtService.checkEmailAvailability(email).pipe(
+      return UserService.checkEmailAvailability(email).pipe(
         debounceTime(300),
         map((available: boolean) => (available ? null : { emailTaken: true })),
         catchError(() => of(null))  // gestisci gli errori in modo appropriato

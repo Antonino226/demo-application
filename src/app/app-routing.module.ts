@@ -8,11 +8,15 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
   {title: "ADS | Home", path:'home' , component: HeaderComponent, canActivate: [AuthGuard] },
+  {title: "ADS | Profile", path:'profile/:id' , component: ProfileComponent, canActivate: [AuthGuard] },
   {title: "ADS | About", path:'about' , component: AboutComponent, canActivate: [AuthGuard] },
   {title: "ADS | Users", path:'users' , component: UsersComponent, canActivate: [AuthGuard] },
+  {title: "ADS | Product", path:'product' , component: ProductComponent, canActivate: [AuthGuard] },
   {title: "ADS | Pricing", path:'pricing' , component: PricingComponent, canActivate: [AuthGuard] },
   {title: "ADS | Gallery", path:'gallery' , component: GalleryComponent, canActivate: [AuthGuard] },
   {title: "ADS | Not Found", path:'notfound' , component: NotfoundComponent },

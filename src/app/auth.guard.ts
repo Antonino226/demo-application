@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { JwtService } from './service/jwt.service';
+import { UserService } from './service/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private jwtService: JwtService, private router: Router) {}
+  constructor(private UserService: UserService, private router: Router) {}
 
   canActivate(): boolean {
-    if (this.jwtService.isAuthenticated()) {
+    if (this.UserService.isAuthenticated()) {
       return true;
     } else {
       // L'utente non è autenticato, reindirizza alla pagina di login
